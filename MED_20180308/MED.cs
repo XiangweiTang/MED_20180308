@@ -26,15 +26,22 @@ namespace MED_20180308
             if (REF == 0)
             {
                 INS = HYP;
+                SetOverall();
                 return;
             }
             if (HYP == 0)
             {
                 DEL = REF;
+                SetOverall();
                 return;
             }
             var matrix = DP(refArray, hypArray);
             BackTrack(matrix, refArray, hypArray);
+            SetOverall();
+        }
+
+        private void SetOverall()
+        {
             ERR = INS + DEL + SUB;
             ErrorRate = 1.0 * ERR / REF;
         }
