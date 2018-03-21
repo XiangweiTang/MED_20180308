@@ -25,13 +25,13 @@ namespace MED_20180308
             HYP = hypArray.Length;
             if (REF == 0)
             {
-                INS = HYP;
+                ERR= INS = HYP;
                 SetOverall();
                 return;
             }
             if (HYP == 0)
             {
-                DEL = REF;
+                ERR=DEL = REF;
                 SetOverall();
                 return;
             }
@@ -42,7 +42,7 @@ namespace MED_20180308
 
         private void SetOverall()
         {
-            ERR = INS + DEL + SUB;
+            //ERR = INS + DEL + SUB;
             ErrorRate = 1.0 * ERR / REF;
         }
 
@@ -50,14 +50,10 @@ namespace MED_20180308
         {
             int r = refArray.Length;
             int h = hypArray.Length;
-            while (r > 0 && h > 0)
+            while (r >= 0 && h >= 0)
             {
-                if (r == 1 && h == 1)
-                {
-                    if (!refArray[0].Equals(hypArray[0]))
-                        SUB++;
+                if (r == 0 && h == 0)
                     break;
-                }
                 if (r == 0)
                 {
                     h--;
@@ -121,6 +117,7 @@ namespace MED_20180308
                     matrix[i, j] = Math.Min(Math.Min(left, down), diag);
                 }
             }
+            ERR = matrix[refLength, hypLength];
             return matrix;
         }
         

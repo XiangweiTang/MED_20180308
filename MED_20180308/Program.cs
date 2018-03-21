@@ -11,9 +11,11 @@ namespace MED_20180308
     {
         static void Main(string[] args)
         {
-            string refString = "abcdefgh";
-            string hypString = "axcdfgyhz";
-            CallMED(refString, hypString);
+            string refRootPath = @"E:\Download\Txt_To_Xiangwei\Final";
+            string hypRootPath = @"E:\Download\Txt_To_Xiangwei\xunfei";
+            string outputPath = "XF.txt";
+            CheckFolder cf = new CheckFolder();
+            cf.Run(refRootPath, hypRootPath, outputPath);
         }
         
         static void CallMED(string refString, string hypString)
