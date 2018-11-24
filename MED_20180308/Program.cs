@@ -11,24 +11,10 @@ namespace MED_20180308
     {
         static void Main(string[] args)
         {
-            string refRootPath = @"E:\Download\Txt_To_Xiangwei\Final";
-            string hypRootPath = @"E:\Download\Txt_To_Xiangwei\xunfei";
-            string outputPath = "XF.txt";
-            CheckFolder cf = new CheckFolder();
-            cf.Run(refRootPath, hypRootPath, outputPath);
-        }
-        
-        static void CallMED(string refString, string hypString)
-        {
+            string refString = "abcdefghijklmnop";
+            string hypString = "abbcxefxhxjkllmnp";
             MED med = new MED();
             med.Run(refString, hypString);
-            Console.WriteLine("Ref: " + refString);
-            Console.WriteLine("Hyp: " + hypString);
-            Console.WriteLine("INS = " + med.INS);
-            Console.WriteLine("DEL = " + med.DEL);
-            Console.WriteLine("SUB = " + med.SUB);
-            Console.WriteLine("REF = " + med.REF);
-            Console.WriteLine("ErrorRate = " + med.ErrorRate);
-        }
+        }        
     }
 }
